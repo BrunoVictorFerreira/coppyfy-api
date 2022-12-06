@@ -1,0 +1,6 @@
+
+#import /models/*.graphql
+
+type Mutation {
+ 
+}

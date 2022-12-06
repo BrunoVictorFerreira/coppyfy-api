@@ -1,0 +1,13 @@
+
+#import /models/*.graphql
+
+type Query {
+  #filtro para precificação de produto venda
+
+
+  users(
+    name: String
+  ): [User!] @field(resolver: "App\\GraphQL\\Queries\\UserQuery@users")
+
+  
+}
