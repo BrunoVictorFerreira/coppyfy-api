@@ -1,2 +1,3 @@
 #import /query.graphql
+#import /mutation.graphql
 

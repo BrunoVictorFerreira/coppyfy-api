@@ -1,0 +1,4 @@
+type Flag {
+    id: ID!
+    url: String!
+}

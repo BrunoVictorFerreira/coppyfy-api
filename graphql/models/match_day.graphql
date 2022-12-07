@@ -1,0 +1,13 @@
+type MatchsDay {
+    id: ID!
+    first_team: ID!
+    second_team: ID!
+    important: Boolean!
+    first_turn: Boolean!
+    second_turn: Boolean!
+    third_turn: Boolean!
+    octaves_turn: Boolean!
+    fourth_turn: Boolean!
+    semi_turn: Boolean!
+    final_turn: Boolean!
+}

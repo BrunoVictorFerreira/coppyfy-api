@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('forgot_passwords', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer("user_id");
+            $table->string("code");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('forgot_passwords');
     }
 };

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('first_team')->references('id')->on('teams');
             $table->foreign('second_team')->references('id')->on('teams');
+            $table->softDeletes();
         });
     }
 

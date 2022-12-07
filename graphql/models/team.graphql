@@ -1,0 +1,8 @@
+type Team {
+    id: ID!
+    name: String!
+    brasao_id: ID
+    brasao: [Flag]
+    group_id: ID
+    informations: [TeamInformation]
+}

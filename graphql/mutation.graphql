@@ -2,5 +2,16 @@
 #import /models/*.graphql
 
 type Mutation {
- 
+ create_team(name: String!, brasao: String!): Boolean
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\Teams"
+    )
+ create_game(first_team: ID!, second_team: ID!, important: Boolean): Boolean
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\MatchsDays"
+    )
+ create_game_result(match_id: ID!, first_team: Int, second_team: Int): Boolean
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\GameResults"
+    )
 }

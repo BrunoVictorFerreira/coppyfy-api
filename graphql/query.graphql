@@ -8,6 +8,11 @@ type Query {
   users(
     name: String
   ): [User!] @field(resolver: "App\\GraphQL\\Queries\\UserQuery@users")
-
-  
+  flags: [Flag!] @all
+  teams: [Team!] @all
+  matchs: [MatchsDay] @all
+  groups: [Group] @all
+  teams_for_group(
+    group_id: ID!
+  ): [Team!] @field(resolver: "App\\GraphQL\\Queries\\GroupQuery@teamsForGroup")
 }

@@ -1,0 +1,7 @@
+type TeamInformation {
+    id: ID!
+    pts: Int
+    vit: Int
+    der: Int
+    sg: Int
+}

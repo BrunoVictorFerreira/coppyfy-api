@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -48,11 +51,13 @@ class AuthController extends Controller
         ];
         return response($response, 201);
     }
-
-    public function logout(Request $request){
+    
+    public function logout(Request $request)
+    {
         auth()->user()->tokens()->delete();
-        return [
+        return response()->json([
             'message' => 'Logout efetuado com sucesso e exclusão dos tokens'
-        ];
+        ], 200);
+            
     }
 }
