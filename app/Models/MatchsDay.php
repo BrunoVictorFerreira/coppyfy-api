@@ -22,5 +22,12 @@ class MatchsDay extends Model
         'semi_turn',
         'final_turn',
     ];
+
+    public function getfirstTeamDescriptionAttribute(){
+        return Team::where('id', $this->attributes['first_team'])->get();
+    }
+    public function getSecondTeamDescriptionAttribute(){
+        return Team::where('id', $this->attributes['second_team'])->get();
+    }
     
 }

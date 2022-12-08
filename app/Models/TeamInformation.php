@@ -15,7 +15,9 @@ class TeamInformation extends Model
         'teams_id',
         'pts',
         'vit',
+        'emp',
         'der',
+        'gols',
         'sg'
     ];
 }

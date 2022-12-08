@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('teams', function (Blueprint $table) {
-            $table->integer('group_id')->nullable();
+        Schema::table('team_information', function (Blueprint $table) {
+            $table->integer('emp')->default(0);
+            $table->integer('gols')->default(0);
         });
     }
 
@@ -25,8 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('teams', function (Blueprint $table) {
-            $table->dropColumn('group_id');
+        Schema::table('team_information', function (Blueprint $table) {
+            $table->dropColumn('emp');
+            $table->dropColumn('gols');
         });
     }
 };

@@ -33,6 +33,16 @@ class GameResults
         }
     }
 
+    public function getSg($first_team, $second_team, $team_info){
+        if($first_team > $second_team){
+            return $team_info->sg + ($first_team - $second_team);
+        }else if($first_team < $second_team){
+            return $team_info->sg - $second_team;
+        }else{
+            return $team_info->sg;
+        }
+    }
+
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         $match_id = $args["match_id"];
@@ -50,17 +60,21 @@ class GameResults
         $team_info = TeamInformation::where('teams_id', $match->first_team)->first();
         $team_info->update([
             'pts' => $this->getPts($first_team, $second_team, $team_info),
-            'vit' => $first_team > $second_team ? $team_info->pts + 1 : $team_info->pts,
-            'der' => $first_team < $second_team ? $team_info->pts + 1 : $team_info->pts,
-            'sg' => 0,
+            'vit' => $first_team > $second_team ? $team_info->vit + 1 : $team_info->vit,
+            'emp' => $first_team == $second_team ? $team_info->emp + 1 : $team_info->emp,
+            'der' => $first_team < $second_team ? $team_info->der + 1 : $team_info->der,
+            'gols' => $team_info->gols + $first_team,
+            'sg' => $this->getSg($first_team, $second_team, $team_info),
         ]);
-
+        
         $team_info = TeamInformation::where('teams_id', $match->second_team)->first();
         $team_info->update([
             'pts' => $this->getPts($second_team, $first_team, $team_info),
-            'vit' => $second_team > $first_team ? $team_info->pts + 1 : $team_info->pts,
-            'der' => $second_team < $first_team ? $team_info->pts + 1 : $team_info->pts,
-            'sg' => 0,
+            'vit' => $second_team > $first_team ? $team_info->vit + 1 : $team_info->vit,
+            'emp' => $first_team == $second_team ? $team_info->emp + 1 : $team_info->emp,
+            'der' => $second_team < $first_team ? $team_info->der + 1 : $team_info->der,
+            'gols' => $team_info->gols + $second_team,
+            'sg' => $this->getSg($second_team, $first_team, $team_info),
         ]);
 
         return response()->json([
