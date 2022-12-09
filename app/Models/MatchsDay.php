@@ -21,6 +21,7 @@ class MatchsDay extends Model
         'fourth_turn',
         'semi_turn',
         'final_turn',
+        'date'
     ];
 
     public function getfirstTeamDescriptionAttribute(){

@@ -10,6 +10,7 @@ type MatchsDay {
     fourth_turn: Boolean!
     semi_turn: Boolean!
     final_turn: Boolean!
+    date: String
     first_team_description: [Team]
     second_team_description: [Team]
 }

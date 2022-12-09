@@ -28,6 +28,7 @@ class MatchsDays
             MatchsDay::create([
                 'first_team' => $first_team["id"],
                 'second_team' => $second_team["id"],
+                'date' => $args["date"],
                 'important' => $args["important"] ?? false
             ]);
 

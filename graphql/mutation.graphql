@@ -6,7 +6,7 @@ type Mutation {
     @field(
       resolver: "App\\GraphQL\\Mutations\\Teams"
     )
- create_game(first_team: ID!, second_team: ID!, important: Boolean): Boolean
+ create_game(first_team: ID!, second_team: ID!, date: String, important: Boolean): Boolean
     @field(
       resolver: "App\\GraphQL\\Mutations\\MatchsDays"
     )
