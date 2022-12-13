@@ -3,8 +3,10 @@
 namespace App\GraphQL\Queries;
 
 use App\Models\Team;
+use App\Models\Group;
 use App\Models\User;
 use GraphQL\Type\Definition\ResolveInfo;
+use Illuminate\Support\Facades\Log;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 class GroupQuery
@@ -23,7 +25,30 @@ class GroupQuery
     {
 
         return Team::where('group_id', $args['group_id'])
-        ->get();
+            ->get();
+    }
+    public function allTeamsForGroup($root, array $args, $context, $info)
+    {
 
+        $grupos = Group::orderBy('id', 'ASC')->get();
+        Log::info(json_encode($grupos));
+        $array = [];
+        for ($i = 0; $i < count($grupos); $i++) {
+            $groups = Team::join('team_information', 'team_information.teams_id', 'teams.id')
+            ->join('flags', 'flags.id', 'teams.brasao_id')
+            ->where('teams.group_id', $grupos[$i]->id)
+            ->orderBy('team_information.pts', 'DESC')
+            ->orderBy('team_information.sg', 'DESC')
+            ->orderBy('team_information.gols', 'DESC')
+            ->get();
+            array_push($array, [
+                "id" => $grupos[$i]->id,
+                "grupo" => $grupos[$i]->name,
+                "teams" => $groups
+            ]);
+        }
+        
+        Log::info(json_encode($array));
+        return $array;
     }
 }

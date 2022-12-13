@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('matchs_days', function (Blueprint $table) {
-            $table->date('date')->nullable();
+            $table->timestamp('date')->nullable();
         });
     }
 

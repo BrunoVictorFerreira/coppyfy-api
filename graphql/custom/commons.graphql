@@ -1,0 +1,9 @@
+type AllTeamsForGroup{
+    id: ID!
+    grupo: String
+    teams: [Team!]
+}
+type Game{
+    first_team: [Team]
+    second_team: [Team]
+}

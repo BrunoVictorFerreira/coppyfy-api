@@ -1,4 +1,5 @@
 
+#import /custom/*.graphql
 #import /models/*.graphql
 
 type Query {
@@ -11,8 +12,12 @@ type Query {
   flags: [Flag!] @all
   teams: [Team!] @all
   matchs: [MatchsDay] @all
+  matchs_for_group(
+    group_id: ID!
+  ): [MatchsDay] @field(resolver: "App\\GraphQL\\Queries\\MatchDaysQuery@matchDaysForGroup")
   groups: [Group] @all
   teams_for_group(
     group_id: ID!
   ): [Team!] @field(resolver: "App\\GraphQL\\Queries\\GroupQuery@teamsForGroup")
+  all_teams_for_group: [AllTeamsForGroup!] @field(resolver: "App\\GraphQL\\Queries\\GroupQuery@allTeamsForGroup")
 }

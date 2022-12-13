@@ -12,6 +12,6 @@ type Mutation {
     )
  create_game_result(match_id: ID!, first_team: Int, second_team: Int): Boolean
     @field(
-      resolver: "App\\GraphQL\\Mutations\\GameResults"
+      resolver: "App\\GraphQL\\Mutations\\GameResults@save"
     )
 }
