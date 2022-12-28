@@ -2,6 +2,20 @@
 #import /custom/*.graphql
 #import /models/*.graphql
 
+input QueryMatchsOrderByOrderByClause {
+  column: QueryMatchsOrderByColumn!
+  order: SortOrder!
+}
+
+enum QueryMatchsOrderByColumn {
+  date @enum(value: "date")
+}
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
 type Query {
   #filtro para precificação de produto venda
 
@@ -11,7 +25,7 @@ type Query {
   ): [User!] @field(resolver: "App\\GraphQL\\Queries\\UserQuery@users")
   flags: [Flag!] @all
   teams: [Team!] @all
-  matchs: [MatchsDay] @all
+  matchs(orderBy: _@orderBy(columns: ["date"])): [MatchsDay] @all
   matchs_for_group(
     group_id: ID!
   ): [MatchsDay] @field(resolver: "App\\GraphQL\\Queries\\MatchDaysQuery@matchDaysForGroup")

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -23,7 +24,12 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
-        $token = $user->createToken('primeirotoken')->plainTextToken;
+        Mail::send("mail.firstAccess", ["name" => $request->name], function($m) use ($user) {
+            $m->from("victorbruno221@gmail.com");
+            $m->subject("Criação de conta | Coppyfy");
+            $m->to("victorbruno221@gmail.com");
+        });
+        $token = $user->createToken('token')->plainTextToken;
         $response = [
             'user' => $user,
             'token' => $token
@@ -44,7 +50,7 @@ class AuthController extends Controller
                 'message' => 'Credenciais inválidas'
             ], 401);
         }
-        $token = $user->createToken('primeirotoken')->plainTextToken;
+        $token = $user->createToken('token')->plainTextToken;
         $response = [
             'user' => $user,
             'token' => $token

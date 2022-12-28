@@ -13,4 +13,5 @@ type MatchsDay {
     date: String
     first_team_description: [Team]
     second_team_description: [Team]
+    result: [GameResults]
 }

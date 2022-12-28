@@ -30,5 +30,8 @@ class MatchsDay extends Model
     public function getSecondTeamDescriptionAttribute(){
         return Team::where('id', $this->attributes['second_team'])->get();
     }
+    public function getResultAttribute(){
+        return GameResult::where('match_id', $this->attributes['id'])->get();
+    }
     
 }

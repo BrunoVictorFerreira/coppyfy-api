@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UserController;
 use App\Models\Product;
 
 /*
@@ -26,6 +27,7 @@ Route::get('/products/search/{name}', [ProductController::class, 'search']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/forgot-password/validate', [ForgotPasswordController::class, 'validateEmail']);
 Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword']);
+Route::post('/get-user', [UserController::class, 'getUserData']);
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/teams', [TeamController::class, 'index']);

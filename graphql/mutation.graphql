@@ -2,6 +2,10 @@
 #import /models/*.graphql
 
 type Mutation {
+ update_user(id: ID!, name: String!, photo: String): Boolean
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\Users@updateUser"
+    )
  create_team(name: String!, brasao: String!): Boolean
     @field(
       resolver: "App\\GraphQL\\Mutations\\Teams"
