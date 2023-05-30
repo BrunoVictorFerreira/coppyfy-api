@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('team_information', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');;
             $table->integer('teams_id');
             $table->integer('pts');
             $table->integer('vit');

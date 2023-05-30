@@ -1,0 +1,9 @@
+type ImagesJogadores {
+    id: ID!
+    team_id: ID!
+    name: String
+    path: String
+    created_at: String
+    updated_at: String
+    deleted_at: String
+}

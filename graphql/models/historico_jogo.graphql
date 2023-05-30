@@ -1,0 +1,9 @@
+type HistoricoJogo {
+    id: ID!
+    match_id: ID!
+    descricao: String
+    match: MatchsDay,
+    created_at: String
+    updated_at: String
+    deleted_at: String
+}

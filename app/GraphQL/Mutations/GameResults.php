@@ -9,6 +9,7 @@ use App\Models\MatchsDay;
 use App\Models\GameResult;
 use App\Models\Team;
 use App\Models\TeamInformation;
+use Illuminate\Support\Facades\Log;
 
 class GameResults
 {
@@ -48,13 +49,21 @@ class GameResults
         $match_id = $args["match_id"];
         $first_team = $args["first_team"];
         $second_team = $args["second_team"];
+        $finalizado = $args["finalizado"];
 
         $match = MatchsDay::where('id', $match_id)->first();
 
-        GameResult::create([
+        if($finalizado == 1){
+            $match->update([
+                'finalizado' => $finalizado,
+            ]);
+        }
+
+        $game_result = GameResult::create([
             "match_id" => $match_id,
             "first_team" => $first_team,
-            "second_team" => $second_team
+            "second_team" => $second_team,
+            "finalizado" => $finalizado,
         ]);
 
         $team_info = TeamInformation::where('teams_id', $match->first_team)->first();
@@ -77,9 +86,8 @@ class GameResults
             'sg' => $this->getSg($second_team, $first_team, $team_info),
         ]);
 
-        return response()->json([
-            'message' => 'Jogo adicionado com sucesso'
-        ]);
+
+        return $match;
 
 
     }

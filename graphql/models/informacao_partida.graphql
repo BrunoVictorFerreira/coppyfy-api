@@ -1,0 +1,10 @@
+type InformacaoPartida {
+    id: ID!
+    match_id: ID!
+    first_team: ID
+    second_team: ID
+    informacoes: String,
+    created_at: String
+    updated_at: String
+    deleted_at: String
+}

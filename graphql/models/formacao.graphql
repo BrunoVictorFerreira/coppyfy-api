@@ -1,0 +1,11 @@
+type Formacao {
+    id: ID!
+    match_id: ID!
+    first_team: ID
+    second_team: ID
+    first_formation: String,
+    second_formation: String,
+    created_at: String
+    updated_at: String
+    deleted_at: String
+}

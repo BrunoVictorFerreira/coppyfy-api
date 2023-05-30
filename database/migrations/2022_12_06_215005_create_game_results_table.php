@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('game_results', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');;
             $table->integer('match_id');
             $table->integer('first_team');
             $table->integer('second_team');

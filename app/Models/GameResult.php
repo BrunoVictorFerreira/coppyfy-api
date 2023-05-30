@@ -14,6 +14,12 @@ class GameResult extends Model
         'id',
         'match_id',
         'first_team',
-        'second_team'
+        'second_team',
+        'finalizado'
     ];
+
+
+    public function getMatchAttribute(){
+        return MatchsDay::where('id', $this->attributes['match_id'])->get();
+    }
 }

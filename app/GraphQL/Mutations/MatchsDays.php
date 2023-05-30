@@ -6,6 +6,7 @@ use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 use App\Models\MatchsDay;
 use App\Models\Team;
+use Laragraph\Utils\BadRequestGraphQLException;
 
 class MatchsDays
 {
@@ -23,18 +24,20 @@ class MatchsDays
 
         $first_team = Team::where("id", $args["first_team"])->first();
         $second_team = Team::where("id", $args["second_team"])->first();
-
+        $matchs_days = null;
         if (!is_null($first_team) && !is_null($second_team)) {
-            MatchsDay::create([
+            $matchs_days = MatchsDay::create([
                 'first_team' => $first_team["id"],
                 'second_team' => $second_team["id"],
                 'date' => $args["date"],
-                'important' => $args["important"] ?? false
+                'important' => $args["important"] ?? false,
             ]);
 
-            return true;
-        }else{
-            return false;
+            return $matchs_days;
+        } else {
+            throw new BadRequestGraphQLException(
+                'teste'
+            );
         }
     }
 }

@@ -16,6 +16,11 @@ enum SortOrder {
   DESC
 }
 
+enum TipoSuporte {
+  USUARIO @enum(value: "USUARIO")
+  OPERADOR  @enum(value: "OPERADOR")
+}
+
 type Query {
   #filtro para precificação de produto venda
 
@@ -34,4 +39,11 @@ type Query {
     group_id: ID!
   ): [Team!] @field(resolver: "App\\GraphQL\\Queries\\GroupQuery@teamsForGroup")
   all_teams_for_group: [AllTeamsForGroup!] @field(resolver: "App\\GraphQL\\Queries\\GroupQuery@allTeamsForGroup")
+  mensagens_suporte(
+    usuario_id: ID!
+  ): Suporte @field(resolver: "App\\GraphQL\\Queries\\MensagemSuporteQuery@allMessages")
+   mensagens_suporte_operador(
+    usuario_id: ID
+    operador_id: ID
+  ): [Suporte] @field(resolver: "App\\GraphQL\\Queries\\MensagemSuporteQuery@allMessagesOperator")
 }

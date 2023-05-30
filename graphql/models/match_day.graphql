@@ -14,4 +14,8 @@ type MatchsDay {
     first_team_description: [Team]
     second_team_description: [Team]
     result: [GameResults]
+    finalizado: Boolean
+    historic: [HistoricoJogo]
+    informacao_partida: [InformacaoPartida]
+    formacao: [Formacao]
 }

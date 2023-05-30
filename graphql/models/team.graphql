@@ -5,4 +5,5 @@ type Team {
     brasao: [Flag]
     group_id: ID
     informations: [TeamInformation]
+    jogador: [Jogador]
 }

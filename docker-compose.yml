@@ -1,0 +1,67 @@
+version: '3.5'
+
+services:
+    nginx:
+        restart: always
+        image: nginx:1.19-alpine
+        volumes:
+        - api_coppyfy_public:/var/www/html/coppyfy-api/public/:ro
+        - ${PATH_NGINX_LOG}:/var/log/nginx
+        - ${PATH_NGINX_CONF}:/etc/nginx/conf.d
+        - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf
+        networks:
+        - nginx-compose-network
+        ports:
+        - "80:80"
+        # SSL
+        - "443:443"
+    db:
+        container_name: db
+        image: postgres
+        environment:
+            POSTGRES_DB: coppyfy-api
+            POSTGRES_PASSWORD: coppyfy-api
+            POSTGRES_USER: coppyfy-api
+        ports:
+            - 5432:5432
+        volumes:
+            - ./db/crud/pgdata:/var/lib/postgresql
+        networks:
+            - postgres-compose-network
+
+    redis:
+        restart: always
+        image: redis:3.2.5-alpine
+        volumes:
+        - ./redis_data:/var/lib/redis
+        ports:
+        - "6379:6379"
+        networks:
+        - postgres-compose-network
+        - nginx-compose-network
+
+    coppyfy:
+        restart: always
+        image: php:latest
+        command: bash -c "chmod +x ./init-dev.sh && ./init-dev.sh"
+        build: ${APLICATION_API_COPPYFY}
+        volumes:
+        - api_coppyfy_public:/var/www/html/public
+        - ${APLICATION_API_COPPYFY}:/var/www/html
+        - ${INIT_API_COPPYFY}:/var/www/html/init-dev.sh
+        - ${ENV_API_COPPYFY}:/var/www/html/.env
+        - /var/www/html/vendor
+        networks:
+        - postgres-compose-network
+        - nginx-compose-network
+        depends_on:
+        - db
+
+volumes:
+  api_coppyfy_public:
+  
+networks:
+ nginx-compose-network:
+    driver: bridge  
+ postgres-compose-network:
+    driver: bridge

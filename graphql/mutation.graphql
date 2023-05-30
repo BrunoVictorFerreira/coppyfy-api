@@ -10,12 +10,39 @@ type Mutation {
     @field(
       resolver: "App\\GraphQL\\Mutations\\Teams"
     )
- create_game(first_team: ID!, second_team: ID!, date: String, important: Boolean): Boolean
+ create_game(first_team: ID!, second_team: ID!, date: String, important: Boolean): MatchsDay
     @field(
       resolver: "App\\GraphQL\\Mutations\\MatchsDays"
     )
- create_game_result(match_id: ID!, first_team: Int, second_team: Int): Boolean
+ create_game_result(match_id: ID!, first_team: Int, second_team: Int, finalizado: Boolean): MatchsDay
     @field(
       resolver: "App\\GraphQL\\Mutations\\GameResults@save"
+    )
+
+  create_game_historic(match_id: ID!, descricao: String): HistoricoJogo
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\HistoricoJogo"
+    )
+  create_game_information(match_id: ID!, first_team: Int, second_team: Int, informacoes: String): InformacaoPartida
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\InformacaoPartida"
+    )
+  create_game_formation(match_id: ID!, first_team: Int, second_team: Int, first_formation: String, second_formation: String): Formacao
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\Formacao"
+    )
+
+  create_jogador(team_id: ID!, nome: String, numero: String): Jogador
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\Jogador"
+    )
+
+  create_suporte(usuario_id: ID!, mensagem: String!, suporte_id: ID): Suporte
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\Suporte"
+    )
+  create_suporte_operador(usuario_id: ID!, mensagem: String!, suporte_id: ID!): Suporte
+    @field(
+      resolver: "App\\GraphQL\\Mutations\\Suporte@createSuporteOperador"
     )
 }

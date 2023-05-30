@@ -19,132 +19,132 @@ class FlagsSeeder extends Seeder
     {
        return [
             [
-                "url" => 'http://localhost:8000/storage/brasil.png',
+                "url" => '/assets/brasoes/brasil.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => '2022-12-06 10:54:59',
             ],
             [
-                "url" => 'http://localhost:8000/storage/alemanha.png',
+                "url" => '/assets/brasoes/alemanha.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/arabia.webp',
+                "url" => '/assets/brasoes/arabia.webp',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/argentina.png',
+                "url" => '/assets/brasoes/argentina.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/australia.png',
+                "url" => '/assets/brasoes/australia.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/belgica.webp',
+                "url" => '/assets/brasoes/belgica.webp',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/camaroes.png',
+                "url" => '/assets/brasoes/camaroes.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/canada.png',
+                "url" => '/assets/brasoes/canada.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/catar.png',
+                "url" => '/assets/brasoes/catar.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/coreia.webp',
+                "url" => '/assets/brasoes/coreia.webp',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/costa.png',
+                "url" => '/assets/brasoes/costa.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/croacia.webp',
+                "url" => '/assets/brasoes/croacia.webp',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/dinamarca.png',
+                "url" => '/assets/brasoes/dinamarca.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/equador.png',
+                "url" => '/assets/brasoes/equador.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/espanha.png',
+                "url" => '/assets/brasoes/espanha.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/estados.webp',
+                "url" => '/assets/brasoes/estados.webp',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/franca.png',
+                "url" => '/assets/brasoes/franca.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/gana.webp',
+                "url" => '/assets/brasoes/gana.webp',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/holanda.png',
+                "url" => '/assets/brasoes/holanda.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/inglaterra.png',
+                "url" => '/assets/brasoes/inglaterra.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/ira.png',
+                "url" => '/assets/brasoes/ira.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/japao.png',
+                "url" => '/assets/brasoes/japao.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/marrocos.png',
+                "url" => '/assets/brasoes/marrocos.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/mexico.webp',
+                "url" => '/assets/brasoes/mexico.webp',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/gales.png',
+                "url" => '/assets/brasoes/gales.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/polonia.png',
+                "url" => '/assets/brasoes/polonia.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/portugal.png',
+                "url" => '/assets/brasoes/portugal.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/senegal.jpg',
+                "url" => '/assets/brasoes/senegal.jpg',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/servia.png',
+                "url" => '/assets/brasoes/servia.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/suica.png',
+                "url" => '/assets/brasoes/suica.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/tunisia.png',
+                "url" => '/assets/brasoes/tunisia.png',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ], [
-                "url" => 'http://localhost:8000/storage/uruguai.webp',
+                "url" => '/assets/brasoes/uruguai.webp',
                 "created_at" => '2022-12-06 10:54:59',
                 "updated_at" => "2022-12-06 10:54:59"
             ]

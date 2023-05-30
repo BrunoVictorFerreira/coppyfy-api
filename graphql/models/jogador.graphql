@@ -1,0 +1,10 @@
+type Jogador {
+    id: ID!
+    team_id: ID!
+    nome: String
+    numero: String
+    imagem_jogador: [ImagesJogadores]
+    created_at: String
+    updated_at: String
+    deleted_at: String
+}

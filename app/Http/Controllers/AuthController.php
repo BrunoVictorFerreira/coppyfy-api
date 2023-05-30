@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 
@@ -24,7 +26,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
-        Mail::send("mail.firstAccess", ["name" => $request->name], function($m) use ($user) {
+        Mail::send("mail.firstAccess", ["name" => $request->name], function ($m) use ($user) {
             $m->from("victorbruno221@gmail.com");
             $m->subject("Criação de conta | Coppyfy");
             $m->to("victorbruno221@gmail.com");
@@ -39,6 +41,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        Log::info("testeeee");
         $request->validate([
             'email' => 'required|string',
             'password' => 'required|string',
@@ -57,13 +60,28 @@ class AuthController extends Controller
         ];
         return response($response, 201);
     }
-    
+
     public function logout(Request $request)
     {
-        auth()->user()->tokens()->delete();
+        Log::info("caiu aqui abc123");
+
+        $request->user()->currentAccessToken()->delete();
         return response()->json([
             'message' => 'Logout efetuado com sucesso e exclusão dos tokens'
         ], 200);
-            
+    }
+
+    public function veryfyToken(Request $request)
+    {
+        $user = User::where([
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+        
+        if ($request->user('token')) {
+            return "auth";
+        } else {
+            return "guest";
+        }
     }
 }

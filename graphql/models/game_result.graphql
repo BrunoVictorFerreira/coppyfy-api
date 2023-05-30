@@ -3,4 +3,5 @@ type GameResults {
     match_id: ID!
     first_team: Int
     second_team: Int
+    finalizado: Boolean
 }

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('flags', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');;
             $table->string('url', 500);
             $table->timestamps();
             $table->softDeletes();

@@ -1,0 +1,11 @@
+type Suporte {
+    id: ID!
+    usuario_id: ID!
+    operador_id: ID
+    usuario: User
+    operador: User
+    mensagens_suporte: [MensagemSuporte]
+    created_at: String
+    updated_at: String
+    deleted_at: String
+}

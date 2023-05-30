@@ -27,4 +27,8 @@ class Team extends Model
         return $this->hasMany(TeamInformation::class, 'teams_id');
     }
 
+    public function getJogadorAttribute(){
+        return jogadores::where('team_id', $this->attributes['id'])->get();
+    }
+
 }
